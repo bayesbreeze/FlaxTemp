@@ -1,0 +1,28 @@
+base:
+    seed: 1
+    mode: "train" # train, eval
+    work_dir: "working"
+    sample_dir: "${base.work_dir}/samples"
+    tb_dir: "${base.work_dir}/tensorboard"
+    checkpoint_dir: "${base.work_dir}/checkpoints"
+
+train:
+    learning_rate: 1e-3
+    batch_size: 256
+    n_iters: 2000
+    log_freq: 50
+    eval_freq: 100
+    snapshot_freq: 500
+    snapshot_keep: 2  
+    snapshot_sampling: True
+    latents: 20   # Number of latent variables
+    num_steps_per_epoch: "???"   # calculate when load dataset
+
+model:
+    name: 'ddpm'
+    scale_by_sigma: True
+
+data:
+    dataset: "binarized_mnist"
+    shuffle_buff: 1024
+    
